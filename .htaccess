@@ -1,0 +1,13 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base directory for the rewrite rules
+RewriteBase /
+
+# Redirect all requests to public/index.html
+RewriteRule ^$ public/index.html [L]
+
+# If the requested file or directory does not exist, redirect to public/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . public/index.html [L]
